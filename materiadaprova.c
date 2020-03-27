@@ -60,15 +60,17 @@ void selectSort(int *v){
 	printf("Select Sort para %i elementos\n",TAM);
 	do{
 		for(i = 1; i <= TAM; i++){
-            aux = v[i];
 			j = i - 1;
-			if((v[j] >= 0) && (aux > v[j])){
-				v[j + 1] = v[j];
-				v[j] = aux;
-				j--;  
+			if(v[j] > v[j+1]){
+				aux = v[i];
+				if((v[j] >= 0) && (aux > v[j])){
+					v[j + 1] = v[j];
+					v[j] = aux;
+					j--;
+				}	
+				mostrarVetor(v,0);			
 			}
-			v[j - 1] = j;
-			mostrarVetor(v,0);
+			else break;
 		}
 	}while(v[j] > v[j + 1]);
 }
@@ -82,3 +84,4 @@ void main(){
 	mostrarVetor(v,0);
 	printf(" pronto!\n");
 }
+ 
